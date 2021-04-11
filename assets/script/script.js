@@ -84,22 +84,7 @@ function questionGenerator(){
 
 
 function checkAnswer(answer){
-    correctAnswer = questions;
-
-    if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
-        score++;
-        alert("That Is Correct!");
-        currentQuestionIndex++;
-        generateQuizQuestion();
-        //display in the results div that the answer is correct.
-    }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
-        alert("That Is Incorrect.")
-        currentQuestionIndex++;
-        generateQuizQuestion();
-        //display in the results div that the answer is wrong.
-    }else{
-        showScore();
-    }
+    correctAnswer = questions
 }
 
 
