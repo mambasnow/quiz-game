@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Javascript Quiz</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="../quiz-game/assets/css/style.css">
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                Highscore: <span id="highscore">0</span>
+            </li>
+            <li>
+                Timer: <span id="timer">75</span>
+            </li>
+            <li>
+                Score: <span id="score">0</span>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="question-container" style="display: none;">
+            <span id="test-question">Questions</span>
+            <div class="answers">
+                <button class="answer-btn" id="button-a"></button>
+                <button class="answer-btn" id="button-b"></button>
+                <button class="answer-btn" id="button-c"></button>
+                <button class="answer-btn" id="button-d"></button>
+            </div>
+        </div>
+        <div class="container">
+            <div id="start-menu">
+            <h1>Test your Javascript knowledge.</h1>
+            <div id="btn-container">
+            <button class="button" id="start-button">Start Quiz</button>
+            <button class="button" id="highscores">View Highscores</button>
+            </div>
+            </div>
+        </div>
+    </main>
+  <script src="../quiz-game/assets/script/script.js"></script>
+</body>
+</html>
