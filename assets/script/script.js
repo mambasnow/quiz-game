@@ -1,57 +1,50 @@
 //global variables
 var countdown = 75;
 var startBtn = $("#start-button");
-var score = $('#score');
+var scoreEl = $('#score');
+var score = 0;
+var answerbtn = $('.answer-btn');
 /// Questions and Answers
 const questions = [ {question: "What is an API?",
-                    answerOne:
-                     {quest:"Access Portal Interface",
-                      correctAnswer: true},
-                    answertwo: {quest:"Application Program Interface",
-                                correctAnswer:false},
-                    answerThree: {quest:"Application Point Interlace",
-                                correctAnswer:false},
-                    answerFour: {quest:"Artificial Progamming Imprint",
-                                correctAnswer: false},
+                    answers:["Access Portal Interface",
+                      
+                    "Application Program Interface",
+                                
+                    "Application Point Interlace",
+                               
+                    "Artificial Progamming Imprint"],
+                    correctAnswer: "Application Program Interface",
+                                
                     },
 
                     {question: "What does the DOM stand for?",
-                    answerOne: {quest:"Digital Object Modal",
-                                correctAnswer:false},
-                    answertwo: {quest:"Data Oriented Module",
-                                correctAnswer: false},
-                    answerThree: {quest:"Document Object Model",
-                                correctAnswer:true},
-                    answerFour: { quest:"Desktop Object Monitor",
-                                correctAnswer: false}},
+                    answer: ["Digital Object Modal",
+                            "Data Oriented Module", 
+                            "Document Object Model",
+                             "Desktop Object Monitor"],
+                    correctAnswer: 2},
 
                     {question: "What file is use mainly to style the website?",
-                    answerOne: {quest:"CSS",
-                                correctAnswer: true},
-                    answertwo: {quest:"Javascript",
-                                correctAnswer:false},
-                    answerThree: {quest:"Dom",
-                                correctAnswer:false},
-                    answerFour: {quest:"Bootsrap",
-                                correctAnswer: false}},
+                    answer: ["CSS",
+                            "Javascript",
+                            "Dom",
+                            ,"Bootsrap"],
+                    correctAnswer: 0},
 
 
                     {question: "What file is use mainly to add function the website?",
-                    answerOne: {quest:"CSS",
-                                correctAnswer:false},
-                    answertwo: {quest:"Javascript",
-                                correctAnswer: true},
-                    answerThree: {quest:"Dom",
-                                correctAnswer:false},
-                    answerFour: {quest:"Bootsrap",
-                                correctAnswer:false}}
-
+                    answer: ["CSS",
+                            "Javascript",
+                            "Dom",
+                            "Bootsrap"],
+                    correctAnswer: 1}
                     ];
 
 
 
 var lastQuestion = questions.length;
 var activeQuestNum = 0;
+var activeQuest = questions[activeQuestNum];
 
 
 
@@ -71,22 +64,35 @@ function timerCountdown(){
     
 }
 
-
+/// populates questions from questions object to div 
 function questionGenerator(){
-    var activeQuest = questions[activeQuestNum];
+    
+    if (activeQuestNum < questions.length){
     $('#test-question').text(activeQuest.question);
-    $('#button-a').html(activeQuest.answerOne.quest);
-    $('#button-b').html(activeQuest.answertwo.quest);
-    $('#button-c').html(activeQuest.answerThree.quest);
-    $('#button-d').html(activeQuest.answerFour.quest);
+    $('#button-a').html(activeQuest.answers[0]);
+    $('#button-b').html(activeQuest.answers[1]);
+    $('#button-c').html(activeQuest.answers[2]);
+    $('#button-d').html(activeQuest.answers[3]);
+
+    
+};
 }
 
 
-
-function checkAnswer(answer){
-    correctAnswer = questions
-}
-
+//check answer button
+$('.answer-btn').on("click", function(){
+    console.log($(this).html());
+    if (questions[0].correctAnswer == $(this).html()) {
+        score = score + 1;
+        scoreEl.text(score);
+        activeQuestNum ++;
+        (questionGenerator);
+        
+        console.log("true");
+      }else{
+          console.log("false");
+      }
+});
 
 
 //Start the quiz main function
